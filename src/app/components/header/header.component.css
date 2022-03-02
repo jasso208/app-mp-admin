@@ -45,3 +45,8 @@ a:hover,a:active{
 h1{
     font-size: 15px;
 }
+.label-button{
+    font-size:15px;
+    margin-top:5px;
+    font-weight: normal;
+}
