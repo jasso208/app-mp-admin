@@ -1,0 +1,47 @@
+
+#icono-logo{
+
+    color:orange;
+    
+    
+}
+mat-toolbar{
+    background-color:#12489e;
+    
+    color:white;
+}
+
+mat-sidenav{
+    width:250px;
+
+}
+
+#sub-menu-principal{
+    background-color:lightblue;
+    height: 30px;
+    color:black;
+    font-weight: bold;
+}
+
+
+.nav-menu{
+    list-style: none;
+    padding:0;
+    margin:0;
+
+}
+.nav-menu a{
+    font-size: 15px;
+}
+a{
+    text-decoration:none;
+    color:white;
+    cursor:pointer;
+
+}
+a:hover,a:active{
+    color:#dbcde6;
+}
+h1{
+    font-size: 15px;
+}
