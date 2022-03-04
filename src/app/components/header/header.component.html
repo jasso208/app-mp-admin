@@ -11,14 +11,11 @@
     <h1>
       Sistema de administración de marketplaces.
     </h1>
-    
   </div>
 </mat-toolbar>
 
 <mat-toolbar id="sub-menu-principal">
-    
     <button mat-icon-button (click)="onMenuToggleDispatch()">
-
       <mat-icon>
         menu
       </mat-icon>
@@ -26,4 +23,10 @@
     <label class="label-button"(click)="onMenuToggleDispatch()">
       Herramientas
     </label>
-  </mat-toolbar> 
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <h1>
+        {{usuario}}
+      </h1>
+    </div>
+</mat-toolbar>

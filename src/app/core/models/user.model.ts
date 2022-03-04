@@ -2,9 +2,8 @@ export class User{
   constructor(
     public id:number,
     public username:string,
-    public firstname:string,
-    public lastname:string,
-    public password?:string
+    public first_name:string,
+    public last_name:string
   ){  }
 
 }

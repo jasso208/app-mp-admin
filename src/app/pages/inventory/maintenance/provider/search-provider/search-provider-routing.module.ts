@@ -1,26 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizatedGuard } from '@app/guards/authorizated.guard';
+import { SearchProviderComponent } from './search-provider.component';
 
 const routes: Routes = [{
-  path:'login',
-  loadChildren:()=>import('./pages/login/login.module').then( m=> m.LoginModule)
-},
-{
   path:'',
-  pathMatch:'full',
-  redirectTo:'login'
-},
-{
-  path:'home',
-  loadChildren:()=>import('./pages/home/home.module').then(m => m.HomeModule),
+  component:SearchProviderComponent,
   canActivate:[AuthorizatedGuard]
-}
-
-];
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class SearchProviderRoutingModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Session } from '@app/core/models/session.model';
+import { User } from '@app/core/models/user.model';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
 import { StorageService } from '@app/services/storage/storage.service';
 import { LoginObject } from '@app/shared/login/login-object.model';
@@ -15,10 +17,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private authenticationService:AuthenticationService,
     private storageService:StorageService,
-    private router:Router
+    private router:Router,
+    private authService:AuthenticationService
   ) { }
 
   ngOnInit(): void {
+    let session:Session = this.storageService.getCurrentSession();
+
+    if(session != null){
+      this.router.navigate(['/home']);
+    }
   }
 
   loginUsuario(form:NgForm):void{
@@ -36,8 +44,27 @@ export class LoginComponent implements OnInit {
 
 
   correctLogin(data:any){
-    this.storageService.setCurrentSession(data);
-    this.router.navigate(['']);
+    let session:Session=data;
+    this.storageService.setCurrentSession(session);
+
+    this.authService.getDataUser(session.token).subscribe(
+      data =>{
+
+        session.user = data.data;
+
+        this.storageService.setCurrentSession(session);
+        this.router.navigate(['/home']);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+
+
+
+
   }
+
 
 }

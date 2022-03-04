@@ -9,12 +9,12 @@ const routes: Routes = [{
       loadChildren:()=>import('./pages/auth/auth.module').then(m=> m.AuthModule)
     },
     {
-      path:'auth',
-      loadChildren:()=>import('./pages/auth/auth.module').then(m=> m.AuthModule)
-    },
-    {
       path:'ventas',
       loadChildren:()=>import('./pages/ventas/ventas.module').then(m => m.VentasModule)
+    },
+    {
+      path:'inventory',
+      loadChildren:()=>import('./pages/inventory/inventory.module').then(m=>m.InventoryModule)
     }
   ]
 }];
