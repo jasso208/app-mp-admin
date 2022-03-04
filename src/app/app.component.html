@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #menu>
-    <p>Elemento sidenav</p>
+    <app-menu-list (menuToggle)="menu.toggle()"></app-menu-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -11,7 +11,7 @@
     <main>
       <router-outlet></router-outlet>
     </main>
-    
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>
