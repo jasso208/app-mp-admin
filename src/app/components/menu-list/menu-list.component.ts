@@ -7,6 +7,20 @@ import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 })
 export class MenuListComponent implements OnInit {
 
+  public contraer:string="+";
+  public statusmenu = {
+    "maintenance":{
+      "iconcontraer":"+",
+      "expndsubmenu":false,
+      "showiconcontraer":true
+    },
+    "articulo":{
+      "iconcontraer":"+",
+      "expndsubmenu":false,
+      "showiconcontraer":false
+    }
+  };
+
   //el evento sera tratado por el padre, en este caso el appcomponent
   @Output() menuToggle = new EventEmitter();
 
@@ -17,5 +31,27 @@ export class MenuListComponent implements OnInit {
 
   closeMenu():void{
     this.menuToggle.emit();
+  }
+  expandMenu(opcion:any):void{
+
+    let status = opcion.iconcontraer;
+    if(status=="+"){
+      opcion.iconcontraer="-";
+      opcion.expndsubmenu=true;
+    }
+    else{
+      opcion.iconcontraer="+";
+      opcion.expndsubmenu=false;
+    }
+    /*
+    if(opcion=="maintenance"){
+      let status = this.statusmenu.maintenance.iconcontraer;
+      if(status=="+"){
+        this.statusmenu.maintenance.iconcontraer="-";
+      }
+      else{
+        this.statusmenu.maintenance.iconcontraer="+";
+      }
+    }*/
   }
 }

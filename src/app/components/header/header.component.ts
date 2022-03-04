@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public showbtntools:boolean = false;
   public usuario:string="";
+  public menuicon:string="menu";
   @Output() menuToggle=new EventEmitter<void>();
   constructor(
     private ss:StorageService
@@ -44,6 +45,7 @@ export class HeaderComponent implements OnInit {
   }
   onMenuToggleDispatch():void{
     this.menuToggle.emit();
+
   }
 
   logOut():void{

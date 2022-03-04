@@ -7,12 +7,41 @@
       Home
     </span>
   </a>
-  <a mat-list-item (click)="closeMenu()">
+  <a mat-list-item (click)="expandMenu(statusmenu.maintenance)">
     <mat-icon>
       plumbing
     </mat-icon>
     <span class="navigation-list-label">
       Mantenimiento
     </span>
+    <span *ngIf="statusmenu.maintenance.showiconcontraer">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {{statusmenu.maintenance.iconcontraer}}
+    </span>
   </a>
+  <div *ngIf="statusmenu.maintenance.expndsubmenu">
+    <a mat-list-item class="sub-menu-list-item" (click)="closeMenu()">
+      <mat-icon>
+        person
+      </mat-icon>
+      Proveedor
+    </a>
+  </div>
+
+
+
+
+  <a mat-list-item (click)="expandMenu(statusmenu.articulo)">
+    <mat-icon>
+      inventory
+    </mat-icon>
+    <span class="navigation-list-label">
+      Articulos
+    </span>
+    <span *ngIf="statusmenu.articulo.showiconcontraer">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {{statusmenu.articulo.iconcontraer}}
+    </span>
+  </a>
+
 </mat-nav-list>
