@@ -9,6 +9,7 @@ import { StorageService } from '@app/services/storage/storage.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public showbtntools:boolean = false;
   public usuario:string="";
   @Output() menuToggle=new EventEmitter<void>();
   constructor(
@@ -26,14 +27,28 @@ export class HeaderComponent implements OnInit {
   }
 
   refreshCurrentUser():void{
+
     if(this.ss.getCurrentSession() != null){
-      this.usuario = "User: ";
-      this.usuario = this.usuario +  this.ss.getCurrentSession().user.first_name;
-      this.usuario = this.usuario + " " + this.ss.getCurrentSession().user.last_name;
+      this.showbtntools=true;
+      try{
+
+        this.usuario = "User: ";
+        this.usuario = this.usuario +  this.ss.getCurrentSession().user.first_name;
+        this.usuario = this.usuario + " " + this.ss.getCurrentSession().user.last_name;
+
+      }
+      catch(e) {
+        console.log(e);
+      }
     }
   }
   onMenuToggleDispatch():void{
     this.menuToggle.emit();
+  }
+
+  logOut():void{
+    this.showbtntools=false;
+    this.ss.logout();
   }
 
 }

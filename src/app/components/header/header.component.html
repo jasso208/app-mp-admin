@@ -14,7 +14,7 @@
   </div>
 </mat-toolbar>
 
-<mat-toolbar id="sub-menu-principal">
+<mat-toolbar id="sub-menu-principal" *ngIf="showbtntools">
     <button mat-icon-button (click)="onMenuToggleDispatch()">
       <mat-icon>
         menu
@@ -29,4 +29,10 @@
         {{usuario}}
       </h1>
     </div>
+    <button mat-icon-button (click)="logOut()">
+      <mat-icon>
+        logout
+      </mat-icon>
+
+    </button>
 </mat-toolbar>
