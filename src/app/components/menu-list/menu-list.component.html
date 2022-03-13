@@ -1,4 +1,4 @@
-<mat-nav-list>
+<!--<mat-nav-list>
   <a mat-list-item (click)="closeMenu()">
     <mat-icon>
       home
@@ -20,7 +20,7 @@
     </span>
   </a>
   <div *ngIf="statusmenu.maintenance.expndsubmenu">
-    <a mat-list-item class="sub-menu-list-item" (click)="closeMenu()">
+    <a mat-list-item class="sub-menu-list-item" (click)="closeMenu()" [routerLink]="['/inventory/maintenance/provider/search']">
       <mat-icon>
         person
       </mat-icon>
@@ -45,3 +45,5 @@
   </a>
 
 </mat-nav-list>
+
+-->

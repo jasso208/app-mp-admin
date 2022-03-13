@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProviderModule } from './provider/provider.module';
 
 const routes: Routes = [{
   path:'search',
@@ -8,7 +9,9 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),
+    ProviderModule
+  ],
   exports: [RouterModule]
 })
 export class ProviderRoutingModule { }

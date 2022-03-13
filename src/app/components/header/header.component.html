@@ -1,38 +1,22 @@
-<mat-toolbar>
-  <span>
-    <span class="material-icons" id="icono-logo">
-      construction
-    </span>
-    MPA-Admin
-  </span>
 
-  <div  fxFlex fxLayout="row" fxLayoutAlign="flex-end"  >
+  <div class="row encabezado" >
 
-    <h1>
-      Sistema de administración de marketplaces.
-    </h1>
-  </div>
-</mat-toolbar>
-
-<mat-toolbar id="sub-menu-principal" *ngIf="showbtntools">
-    <button mat-icon-button (click)="onMenuToggleDispatch()">
-      <mat-icon>
-        {{menuicon}}
-      </mat-icon>
-    </button>
-    <label class="label-button"(click)="onMenuToggleDispatch()">
-      Herramientas
-    </label>
-
-    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-      <h1>
-        {{usuario}}
-      </h1>
+    <div class="col-4">
+      <h1><span id="icono-logo">MP-A</span>dmin</h1>
+      <hr>
     </div>
-    <button mat-icon-button (click)="logOut()">
-      <mat-icon>
-        logout
-      </mat-icon>
 
+    <div class="col-8 text-right">
+      <h6>Sistema de administración de Market Places</h6>
+    </div>
+  </div>
+ <div class="row " id="sub-menu-principal">
+    {{usuario}}
+    <button (click)="logOut()">
+      cerrar session
     </button>
-</mat-toolbar>
+ </div>
+
+
+
+

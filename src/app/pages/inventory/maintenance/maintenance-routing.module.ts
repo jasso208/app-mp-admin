@@ -5,7 +5,8 @@ import { AuthorizatedGuard } from '@app/guards/authorizated.guard';
 const routes: Routes = [
   {
     path:'provider',
-    loadChildren:()=>import('./provider/provider.module').then(m=> m.ProviderModule)
+    loadChildren:()=>import('./provider/provider.module').then(m=> m.ProviderModule),
+    canActivate:[AuthorizatedGuard]
   }
 ];
 

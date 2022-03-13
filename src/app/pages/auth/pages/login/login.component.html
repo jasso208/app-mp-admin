@@ -1,31 +1,44 @@
-<section fxLayoutAlign="center">
-  <mat-card>
-    <form
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="10px"
-      #f="ngForm"
-      (ngSubmit)="loginUsuario(f)"
-    >
-      <div style="width:100%;text-align:center">
-        <mat-icon style="height:70px;width:70px;font-size:60px;" >person</mat-icon>
-        <br>
-        <label>Iniciar sesion</label>
-      </div>
-      <mat-form-field>
-        <mat-label>Usuario</mat-label>
-        <input type="text" matInput placeholder="Usuario" name="username" ngModel required>
-        <mat-error>Debe ingresar un usuario.</mat-error>
-      </mat-form-field>
+<div style="position:fixed;width:100%;height:100%; top:0;left:0;z-index:99;background-color:lightblue;opacity:0.7">
 
-      <mat-form-field>
-        <mat-label>Contraseña</mat-label>
-        <input type="password" matInput placeholder="contraseña" name="password" ngModel required>
-        <mat-error>Debe ingresar una contraseña.</mat-error>
-      </mat-form-field>
-      <button mat-raised-button type="submit">
-          Entrar
-      </button>
-    </form>
-  </mat-card>
-</section>
+</div>
+<!-- Modal -->
+<div style="width:26%;position:fixed;left:37%;top:100px;z-index:100" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <div class="row text-center">
+          <div class="col-12">
+            <i style="font-size:60px;text-align:center" class="bi bi-person-fill"></i>
+          </div>
+          <div class="col-12">
+            <h5>Iniciar sesión</h5>
+            <hr>
+          </div>
+        </div>
+            <form
+            #f="ngForm"
+            (ngSubmit)="loginUsuario(f)"
+          >
+
+            <div class="form-group">
+
+              <input type="text" class="form-control" placeholder="Usuario" name="username" ngModel required>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="contraseña" name="password" ngModel required>
+            </div>
+
+            <div class="form-group text-center">
+                <button class="btn btn-primary "  type="submit">
+                  Entrar
+              </button>
+            </div>
+
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+

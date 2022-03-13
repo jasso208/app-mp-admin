@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorizatedGuard } from '@app/guards/authorizated.guard';
-import { SearchProviderComponent } from './search-provider.component';
+import { ProviderComponent } from './provider.component';
 
 const routes: Routes = [{
   path:'',
-  component:SearchProviderComponent
+  component:ProviderComponent
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SearchProviderRoutingModule { }
+export class ProviderRoutingModule { }
