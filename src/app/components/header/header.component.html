@@ -11,10 +11,19 @@
     </div>
   </div>
  <div class="row " id="sub-menu-principal">
-    {{usuario}}
-    <button (click)="logOut()">
-      cerrar session
-    </button>
+   <div class="col-12 text-right">
+     <a>
+      <i class="bi bi-person-fill"></i>
+      {{usuario}}
+     </a>
+
+    &nbsp;
+    <a (click)="logOut()" class="txt-btn-1">
+      <i class="bi bi-box-arrow-right"></i>
+      salir
+    </a>
+
+   </div>
  </div>
 
 

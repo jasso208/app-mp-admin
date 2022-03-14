@@ -43,15 +43,6 @@ export class MenuListComponent implements OnInit {
       opcion.iconcontraer="+";
       opcion.expndsubmenu=false;
     }
-    /*
-    if(opcion=="maintenance"){
-      let status = this.statusmenu.maintenance.iconcontraer;
-      if(status=="+"){
-        this.statusmenu.maintenance.iconcontraer="-";
-      }
-      else{
-        this.statusmenu.maintenance.iconcontraer="+";
-      }
-    }*/
+
   }
 }

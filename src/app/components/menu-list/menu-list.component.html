@@ -1,49 +1,33 @@
-<!--<mat-nav-list>
-  <a mat-list-item (click)="closeMenu()">
-    <mat-icon>
-      home
-    </mat-icon>
-    <span class="navigation-list-label">
-      Home
-    </span>
-  </a>
-  <a mat-list-item (click)="expandMenu(statusmenu.maintenance)">
-    <mat-icon>
-      plumbing
-    </mat-icon>
-    <span class="navigation-list-label">
+
+<ul class="nav flex-column" >
+  <li class="nav-item">
+    <h4 style="margin-left:10px;">Menu</h4>
+  </li>
+  <li class="nav-item" >
+    <a class="nav-link" (click)="expandMenu(statusmenu.maintenance)">
+      <i class="bi bi-wrench-adjustable"></i>
       Mantenimiento
-    </span>
-    <span *ngIf="statusmenu.maintenance.showiconcontraer">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      {{statusmenu.maintenance.iconcontraer}}
-    </span>
-  </a>
-  <div *ngIf="statusmenu.maintenance.expndsubmenu">
-    <a mat-list-item class="sub-menu-list-item" (click)="closeMenu()" [routerLink]="['/inventory/maintenance/provider/search']">
-      <mat-icon>
-        person
-      </mat-icon>
-      Proveedor
+
+      <span *ngIf="statusmenu.maintenance.showiconcontraer" >
+        {{statusmenu.maintenance.iconcontraer}}
+      </span>
     </a>
-  </div>
-
-
-
-
-  <a mat-list-item (click)="expandMenu(statusmenu.articulo)">
-    <mat-icon>
-      inventory
-    </mat-icon>
-    <span class="navigation-list-label">
-      Articulos
-    </span>
-    <span *ngIf="statusmenu.articulo.showiconcontraer">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      {{statusmenu.articulo.iconcontraer}}
-    </span>
-  </a>
-
-</mat-nav-list>
-
--->
+    <ul class="nav flex-column sub-nav" *ngIf="statusmenu.maintenance.iconcontraer=='-'">
+      <li class="nav-item" >
+        <a class="nav-link" [routerLink]="['/inventory/maintenance/provider/search/']">
+          <i class="bi bi-truck-flatbed"></i>
+            Proveedores
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>

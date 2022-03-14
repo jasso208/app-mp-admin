@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       this.showbtntools=true;
       try{
 
-        this.usuario = "User: ";
+        this.usuario = "";
         this.usuario = this.usuario +  this.ss.getCurrentSession().user.first_name;
         this.usuario = this.usuario + " " + this.ss.getCurrentSession().user.last_name;
 

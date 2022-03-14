@@ -3,3 +3,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+.txt-btn-1{
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  color:black;
+  text-decoration:none;
+
+}
+

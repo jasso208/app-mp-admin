@@ -5,3 +5,20 @@
   margin-left: 20px;
   padding:0px;
 }
+.nav-link{
+  font-size:15px;
+  color:black;
+  cursor:pointer;
+  font-weight: bold;
+}
+.nav-link:hover{
+  background-color:lightblue;
+}
+.sub-nav {
+  padding-left:20px;
+
+}
+.sub-nav a{
+  font-size:12px;
+  font-weight: normal;
+}
