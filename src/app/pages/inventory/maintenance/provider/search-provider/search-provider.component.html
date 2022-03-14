@@ -1,1 +1,81 @@
-Funciona el search provider
+<h3 class="h3-title">
+  <i class="bi bi-truck"></i>
+  Proveedores
+</h3>
+<hr>
+<div class="row">
+  <div class="col-12 text-right">
+    <button class="btn btn-primary btn-sm" (click)="muestraModalAltaProveedor=true">
+      <i class="bi bi-truck"></i>
+      &nbsp;
+      Agregar proveedor
+    </button>
+  </div>
+
+  <div class="col-12 text-right">
+    <br>
+    </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th style="width:10%">
+
+          </th>
+          <th style="width:80%">Proveedor</th>
+          <th style="width:10%">Activo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of providers">
+          <td>
+            <a class="btn-tabla" (click)="desactivaProveedor(p.id,p.descripcion,p.activo)">
+              <i *ngIf="p.activo == 'S'" class="bi bi-arrow-down-square-fill" style="color:red"><span>Desactivar</span></i>
+              <i *ngIf="p.activo == 'N'" class="bi bi-arrow-up-square-fill"><span>Activar</span></i>
+            </a>
+          </td>
+          <td>
+            {{p.descripcion}}
+          </td>
+          <td>
+            {{p.activo}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--Paginacion-->
+    <div class="row">
+      <div class="col-12 ">
+        <hr>
+        <nav style="float:right;margin-left:10px">
+          <ul class="pagination">
+
+
+            <li class="page-item {{p[1]}}" *ngFor="let p of paginates">
+              <a class="page-link" (click)="getCatProviders(p[0],'10')">
+                {{p[0]}}
+              </a>
+            </li>
+
+
+
+          </ul>
+        </nav>
+        <p style="float:right;font-size:20px">Pag</p>
+      </div>
+    </div>
+    <!--Paginacion-->
+
+  </div>
+</div>
+
+
+<app-provider
+  *ngIf="muestraModalAltaProveedor"
+  (cerrar)="getCatProviders('','10')"
+>
+
+</app-provider>

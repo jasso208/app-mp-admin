@@ -6,7 +6,7 @@ import { User } from '@app/core/models/user.model';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
 import { StorageService } from '@app/services/storage/storage.service';
 import { LoginObject } from '@app/shared/login/login-object.model';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
     private authenticationService:AuthenticationService,
     private storageService:StorageService,
     private router:Router,
-    private authService:AuthenticationService
+    private authService:AuthenticationService,
+    private toastrService:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +37,10 @@ export class LoginComponent implements OnInit {
     if(form.valid){
       this.authenticationService.login(new LoginObject(form.form.value)).subscribe(
         data => this.correctLogin(data),
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.toastrService.error("Error al iniciar sesión. Valide que el usuario y contraseña sean correctos.");
+        }
       )
 
     }

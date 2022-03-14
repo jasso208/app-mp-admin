@@ -8,7 +8,9 @@ import {HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
 
 
   ],

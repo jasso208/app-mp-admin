@@ -1,6 +1,7 @@
-import { Component, OnInit ,Inject} from '@angular/core';
-import { ProviderModel} from '@app/core/models/provider.model';
-
+import { Component, OnInit ,Inject,Output,EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProviderService} from '@app/services/inventory/provider.service';
+import { ToastrService } from 'ngx-toastr';
 export interface DialogData {
   animal: string;
   name: string;
@@ -12,13 +13,47 @@ export interface DialogData {
 })
 export class ProviderComponent implements OnInit {
 
+  @Output() cerrar = new EventEmitter<void>();
   accion:string="Alta ";
-
+  form:FormGroup = new FormGroup({});
   constructor(
+    private fb:FormBuilder,
+    private ps: ProviderService,
+    private toastrService:ToastrService
 
   ) { }
 
   ngOnInit(): void {
+    this.incializaForm();
+  }
+
+
+  incializaForm():void{
+    this.form = this.fb.group({
+      descripcion: new FormControl('',[Validators.required])
+    });
+  }
+
+  addProvider():void{
+    this.ps.postProvider(this.form)
+    .subscribe(
+      data=>{
+        if(data.status=="200"){
+          this.toastrService.success("El proveedor se registro correctamente.");
+          this.cerrarVenana();
+        }else{
+          this.toastrService.error("Error al agregar el proveedor.");
+        }
+      },
+      error =>{
+        console.log(error);
+        this.toastrService.error("Error al agregar el proveedor.");
+      }
+    );
+  }
+
+  cerrarVenana():void{
+    this.cerrar.emit();
   }
 
 

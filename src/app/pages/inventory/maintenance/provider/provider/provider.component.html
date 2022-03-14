@@ -1,0 +1,28 @@
+<div class="fondo-modal">
+</div>
+
+<div class="modal-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <i class="bi bi-truck"></i>
+          &nbsp;{{accion}} proveedor
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label>Proveedor</label>
+            <input type="text" formControlName="descripcion" class="form-control" placeholder="Nombre proveedor">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="addProvider()">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cerrarVenana()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

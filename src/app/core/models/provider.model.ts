@@ -1,8 +1,8 @@
 export class ProviderModel{
   constructor(
-    private id:number,
-    private descripcion:string,
-    activo:string
+    public id:number,
+    public descripcion:string,
+    public activo:string
   ){
 
   }

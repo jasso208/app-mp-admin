@@ -8,7 +8,7 @@ import { ProviderRoutingModule } from './provider-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    ProviderRoutingModule
+    ProviderRoutingModule,
   ]
 })
 export class ProviderModule { }
