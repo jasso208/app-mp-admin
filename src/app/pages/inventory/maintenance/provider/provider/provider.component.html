@@ -14,7 +14,7 @@
         <form [formGroup]="form">
           <div class="form-group">
             <label>Proveedor</label>
-            <input type="text" formControlName="descripcion" class="form-control" placeholder="Nombre proveedor">
+            <input type="text" maxlength="50" formControlName="descripcion" class="form-control" placeholder="Nombre proveedor">
           </div>
         </form>
 
@@ -26,3 +26,6 @@
     </div>
   </div>
 </div>
+
+
+<app-spinner *ngIf="showSpinner"></app-spinner>

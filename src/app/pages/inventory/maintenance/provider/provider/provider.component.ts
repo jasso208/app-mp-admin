@@ -16,6 +16,7 @@ export class ProviderComponent implements OnInit {
   @Output() cerrar = new EventEmitter<void>();
   accion:string="Alta ";
   form:FormGroup = new FormGroup({});
+  showSpinner:boolean = false;
   constructor(
     private fb:FormBuilder,
     private ps: ProviderService,
@@ -35,6 +36,7 @@ export class ProviderComponent implements OnInit {
   }
 
   addProvider():void{
+    this.showSpinner=true;
     this.ps.postProvider(this.form)
     .subscribe(
       data=>{
@@ -44,10 +46,12 @@ export class ProviderComponent implements OnInit {
         }else{
           this.toastrService.error("Error al agregar el proveedor.");
         }
+        this.showSpinner=false;
       },
       error =>{
         console.log(error);
         this.toastrService.error("Error al agregar el proveedor.");
+        this.showSpinner=false;
       }
     );
   }

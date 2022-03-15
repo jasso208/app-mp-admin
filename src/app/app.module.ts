@@ -11,12 +11,15 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SpinnerModule } from './components/spinner/spinner.module';
+import { LoaderModule } from './components/loader/loader.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuListComponent
+    MenuListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-
+    SpinnerModule,
+    LoaderModule
 
   ],
   providers: [{

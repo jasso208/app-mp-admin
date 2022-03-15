@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SearchProviderComponent implements OnInit {
   displayedColumns: string[] = ['id', 'descripcion','activo'];
-
+  showSpinner:boolean=false;
 
   providers:Array<ProviderModel> = [];
   muestraModalAltaProveedor:boolean = false;
@@ -34,6 +34,7 @@ export class SearchProviderComponent implements OnInit {
 
     this.paginates= [];
     this.muestraModalAltaProveedor=false;
+    this.showSpinner=true;
     this.ps.getCatProviders(page,page_size).subscribe(
       data => {
 
@@ -51,18 +52,19 @@ export class SearchProviderComponent implements OnInit {
 
         }
 
-
+        this.showSpinner=false;
       },
       error =>{
         console.log(error);
         this.toastrService.error("Error al consultar el catalogo de proveedores.");
-
+        this.showSpinner=false;
       }
     );
   }
 
 
   desactivaProveedor(id:number,descripcion:string,activo:string):void{
+    this.showSpinner=true;
     this.ps.putProvider(id,descripcion,activo)
     .subscribe(
       data=>{
@@ -71,10 +73,12 @@ export class SearchProviderComponent implements OnInit {
         }else{
           this.toastrService.error("Error al actualizar el proveedor.");
         }
+        this.showSpinner=false;
       },
       error =>{
         console.log("error");
         this.toastrService.error("Error al actualizar el proveedor.");
+        this.showSpinner=false;
       }
     );
   }

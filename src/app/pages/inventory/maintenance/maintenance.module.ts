@@ -8,7 +8,8 @@ import { MaintenanceRoutingModule } from './maintenance-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    MaintenanceRoutingModule
+    MaintenanceRoutingModule,
+
   ]
 })
 export class MaintenanceModule { }
